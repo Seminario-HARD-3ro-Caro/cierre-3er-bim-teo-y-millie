@@ -1,13 +1,15 @@
+
+
 // Ejercicio evaluatorio 3er bimestre
 /*
   Integrantes
-    Nombre:
-    Apellido:
-    Curso:
+    Nombre:Milagros 
+    Apellido: Loisi
+    Curso: 3ETIC
     
-    Nombre:
-    Apellido:
-    Curso:
+    Nombre: Teo
+    Apellido: Gonzalez
+    Curso: 3ETIC
   
 Congisgnas
   Conexionado:
@@ -15,14 +17,14 @@ Congisgnas
     Se debe conectar tambien, un pulsador que permita recibir información de un usuario.
     Indicar a continuación los pines a los cuales se conectó cada elemento y el valor de resistencias utilizado:
       Pines:
-        Boton:
-        LED1:
-        LED2:
-        LED3:
-        LED4:
+        Boton:7
+        LED1: 2
+        LED2: 3
+        LED3: 4
+        LED4: 5
       Valor:
-        R_boton:
-        R_LEDs:
+        R_boton: 
+        R_LEDs: 330
 
   Progamas:
     Se deben entregar un programa distinto por cada punto. Los programas son una modificación entre ellos.
@@ -44,13 +46,47 @@ Congisgnas
         IMPORTANTE: si el nro es mayor a 15 se deberá enviar un mensaje de error. 
 
 */ 
+#define ROJO 2
+#define AMARILLO 3
+#define VERDE 4
+#define AZUL 5
+#define BOTON 7
 
 
 void setup() {
+ //Definimos los pines
+ pinMode(ROJO, OUTPUT);
+  pinMode(AMARILLO, OUTPUT);
+  pinMode(VERDE, OUTPUT);
+  pinMode(AZUL, OUTPUT);
+  pinMode(BOTON, INPUT);
+
+//Encendemos todos los led
+
+digitalWrite(AMARILLO,0); 
+digitalWrite(ROJO,0);
+digitalWrite(AZUL,0);
+digitalWrite(VERDE,0);
+ 
+  
+  
   // Configuración del arduino
 }
 
 void loop() {
   // Logica del programa
+  //si el boton esta apretado se prende todo si no se apaga todo
+  if(digitalRead(BOTON)==1){
+    digitalWrite(AMARILLO,0); 
+    digitalWrite(ROJO,0);
+    digitalWrite(AZUL,0);
+    digitalWrite(VERDE,0);
+  }
+  if(digitalRead(BOTON)==0){
+      digitalWrite(AMARILLO,1); 
+      digitalWrite(ROJO,1);
+      digitalWrite(AZUL,1);
+      digitalWrite(VERDE,1);
+    }
 
 }
